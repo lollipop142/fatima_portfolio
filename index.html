@@ -1,804 +1,591 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Fatima Keita — UGC Portfolio</title>
-  <meta name="description" content="UGC Creator Portfolio – wellness, skincare, feminine storytelling with a soft, luxury, Pinterest‑inspired aesthetic." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <title>LEVELS IT – For all your I.T. needs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      /* Palette */
-      --cream:#FFFBF2; --card:#FFFFFF; --gold:#E2C893; --sand:#F6EEDC;
-      --navy:#194B6C; --gold-ink:#8A6A2E;
-      /* Base */
-      --ink:#1C1B1B; --muted:#6F6A68;
-      /* Effects */
-      --line:#E7DDBC; --shadow:0 14px 40px rgba(25,75,108,.12); --radius:22px;
-      --gap:14px; --nav-h:64px;
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    html{scroll-behavior:smooth}
+    *{box-sizing:border-box;margin:0;padding:0}
     body{
-      margin:0; font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-      color:var(--ink); line-height:1.6; background:var(--cream); padding-top:var(--nav-h);
-      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+      font-family:"Poppins",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:#1c2530;
+      background:#f5f7fb;
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+    :root{
+      --primary:#086aa6;
+      --primary-soft:#0f89cf;
+      --accent:#c7a54a;
+      --dark:#141b23;
+      --card-bg:#ffffff;
+      --border-soft:#dde3ee;
+      --radius-lg:18px;
+      --shadow-soft:0 18px 40px rgba(10,27,51,.12);
     }
 
-    /* Background */
-    .bg-ornaments{
-      position:fixed; inset:0; z-index:-2; pointer-events:none;
+    header{
+      position:sticky;top:0;z-index:50;
+      background:rgba(245,247,251,.9);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(221,227,238,.7);
+    }
+    .nav-container{
+      max-width:1120px;margin:0 auto;
+      padding:14px 20px;
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    .logo{display:flex;align-items:center;gap:8px}
+    .logo-mark{
+      width:32px;height:32px;border-radius:12px;
+      background:radial-gradient(circle at 20% 20%,#3ac6ff,#086aa6 55%,#141b23 100%);
+      display:flex;align-items:center;justify-content:center;
+      color:#fff;font-weight:700;font-size:16px;
+    }
+    .logo-text{
+      font-weight:700;letter-spacing:.14em;font-size:14px;color:var(--dark);
+    }
+    nav ul{
+      display:flex;align-items:center;gap:24px;
+      list-style:none;font-size:14px;
+    }
+    nav a{
+      color:#4a5665;font-weight:500;position:relative;padding-bottom:4px;
+    }
+    nav a::after{
+      content:"";position:absolute;left:0;bottom:0;width:0;height:2px;
+      background:linear-gradient(90deg,var(--primary),var(--accent));
+      transition:width .2s ease;
+    }
+    nav a:hover::after{width:100%}
+    .btn-nav{
+      padding:8px 18px;border-radius:999px;
+      background:var(--primary);color:#fff;
+      font-size:13px;font-weight:600;
+      box-shadow:0 8px 20px rgba(8,106,166,.28);
+    }
+
+    .hero{
+      max-width:1120px;margin:0 auto;
+      padding:56px 20px 72px;
+      display:grid;
+      grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);
+      gap:48px;align-items:center;
+    }
+    .hero-badge{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:4px 10px 4px 4px;border-radius:999px;
+      background:rgba(8,106,166,.06);
+      color:#27658d;font-size:11px;
+      margin-bottom:18px;
+    }
+    .hero-badge-pill{
+      padding:4px 10px;border-radius:999px;
+      background:#086aa6;color:#fff;font-weight:600;
+      font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+    }
+    .hero h1{
+      font-size:clamp(32px,4vw,40px);
+      line-height:1.1;margin-bottom:16px;color:var(--dark);
+    }
+    .hero h1 span{
+      background:linear-gradient(90deg,var(--primary),var(--accent));
+      -webkit-background-clip:text;color:transparent;
+    }
+    .hero-sub{
+      font-size:15px;color:#5b6574;margin-bottom:26px;max-width:460px;
+    }
+    .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:20px}
+    .btn-primary{
+      padding:11px 22px;border-radius:999px;border:none;
+      background:linear-gradient(135deg,var(--primary),var(--primary-soft));
+      color:#fff;font-size:14px;font-weight:600;cursor:pointer;
+      box-shadow:0 15px 30px rgba(8,106,166,.35);
+    }
+    .btn-secondary{
+      padding:11px 22px;border-radius:999px;
+      border:1px solid var(--border-soft);
+      background:#fff;color:#304158;
+      font-size:14px;font-weight:500;cursor:pointer;
+    }
+    .hero-footnote{font-size:11px;color:#8a92a1}
+
+    .hero-right{position:relative}
+    .hero-card{
+      background:#0f1823;border-radius:24px;
+      padding:22px 22px 18px;color:#ecf3ff;
+      box-shadow:var(--shadow-soft);position:relative;overflow:hidden;
+    }
+    .hero-card::before{
+      content:"";position:absolute;inset:-30%;
       background:
-        radial-gradient(900px 520px at 18% 14%, rgba(226,200,147,.22) 0%, rgba(226,200,147,0) 60%),
-        radial-gradient(720px 420px at 86% 10%, rgba(234,217,176,.14) 0%, rgba(234,217,176,0) 66%),
-        radial-gradient(1000px 560px at 70% 94%, rgba(255,246,228,.75) 0%, rgba(255,246,228,0) 62%),
-        linear-gradient(180deg,#FFFCF6 0%, #FBF3E6 100%);
+        radial-gradient(circle at 0% 0%,rgba(66,180,255,.4),transparent 60%),
+        radial-gradient(circle at 100% 100%,rgba(199,165,74,.4),transparent 60%);
+      opacity:.8;z-index:0;
     }
-    .grain{
-      position:fixed; inset:-2px; z-index:-1; pointer-events:none; opacity:.13; mix-blend-mode:multiply;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
-      background-size:180px 180px;
+    .hero-card-inner{position:relative;z-index:1}
+    .hero-card-title{font-size:15px;font-weight:600;margin-bottom:4px}
+    .hero-card-sub{font-size:12px;color:#b9c5dd;margin-bottom:16px}
+    .hero-metrics{
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px;margin-bottom:12px;
     }
-
-    [id]{scroll-margin-top:calc(var(--nav-h) + 10px)}
-
-    /* NAV */
-    .nav{
-      position:fixed; top:0; left:0; right:0; z-index:3000;
-      backdrop-filter:saturate(140%) blur(10px);
-      background:rgba(255,255,250,.78);
-      border-bottom:1px solid rgba(226,200,147,.30);
+    .metric{
+      background:rgba(7,16,28,.8);
+      border-radius:16px;padding:10px 10px 9px;
+      border:1px solid rgba(104,131,172,.4);
     }
-    .nav__inner{max-width:1200px; margin:0 auto; padding:12px 20px; display:flex; align-items:center; justify-content:space-between}
-    .brand{font-family:"Playfair Display",serif; font-weight:700; letter-spacing:.4px; font-size:20px; color:var(--navy)}
-    .menu{display:flex; align-items:center; gap:4px; z-index:3100}
-    .menu a{
-      text-decoration:none; color:#194b6c; font-weight:500; margin:0 6px;
-      padding:8px 12px; border-radius:12px; transition:background .15s ease,color .15s ease
+    .metric-label{
+      font-size:10px;text-transform:uppercase;letter-spacing:.08em;
+      color:#a6b2ca;margin-bottom:2px;
     }
-    .menu a:hover{background:rgba(226,200,147,.16); color:#1f2b35}
-
-    /* Mobile button */
-    .hamburger{
-      display:none; border:1px solid rgba(25,75,108,.25);
-      background:rgba(255,255,255,.9); color:#1f2b35;
-      width:42px; height:42px; border-radius:12px;
-      align-items:center; justify-content:center; cursor:pointer;
-      box-shadow:0 6px 16px rgba(25,75,108,.18);
+    .metric-value{font-size:15px;font-weight:600}
+    .metric-foot{font-size:10px;color:#7ba9ff}
+    .hero-card-footer{
+      font-size:10px;display:flex;
+      align-items:center;justify-content:space-between;
+      margin-top:6px;color:#becae2;
     }
-    .hamburger svg{width:20px; height:20px; display:block}
-
-    /* Mobile dropdown panel */
-    .menu-panel{
-      position:absolute; top:calc(100% + 10px); right:16px; left:16px;
-      background:rgba(255,255,255,.96);
-      border:1px solid rgba(226,200,147,.45);
-      box-shadow:0 18px 42px rgba(25,75,108,.14);
-      border-radius:18px; padding:14px; display:none; z-index:3100;
-      backdrop-filter:saturate(140%) blur(6px);
-    }
-    .menu-panel a{
-      display:block; text-align:center; padding:12px 10px; margin:4px 0;
-      color:#194b6c; font-weight:600; text-decoration:none; border-radius:12px;
-    }
-    .menu-panel a:hover{background:rgba(226,200,147,.14)}
-
-    /* Overlay */
-    .menu-overlay{
-      position:fixed; inset:0; background:rgba(10,14,18,.45);
-      backdrop-filter:blur(2px); display:none; z-index:2000;
+    .pill-safe{
+      padding:4px 10px;border-radius:999px;
+      background:rgba(29,206,160,.15);
+      color:#7af0bf;font-size:10px;font-weight:600;
     }
 
-    /* HERO */
-    .hero{max-width:1200px; margin:36px auto 18px; padding:0 20px 36px; display:grid; grid-template-columns:1.15fr 1fr; gap:24px; align-items:stretch}
-    .hero__grid{position:relative; display:grid; gap:10px; grid-template-columns:repeat(4,1fr); grid-auto-rows:160px; overflow:hidden}
-    .tall{grid-row:span 2} .wide{grid-column:span 2}
-    .hero__img{
-      width:100%; height:100%; object-fit:cover; border-radius:18px;
-      border:1px solid rgba(226,200,147,.28);
-      box-shadow:0 10px 26px rgba(25,75,108,.10), 0 0 12px rgba(226,200,147,.22);
-      transition:transform .25s ease, box-shadow .25s ease, filter .25s ease;
-      filter:saturate(1.02) contrast(1.02);
+    section{padding:0 20px 64px}
+    .section-inner{max-width:1120px;margin:0 auto}
+    .section-header{
+      margin-bottom:24px;display:flex;
+      justify-content:space-between;align-items:flex-end;gap:16px;
     }
-    .hero__img:hover{transform:scale(1.03) translateY(-2px); box-shadow:0 16px 38px rgba(25,75,108,.16), 0 0 16px rgba(226,200,147,.3)}
-    .hero__overlay{position:absolute; inset:0; border-radius:16px; background:linear-gradient(180deg,rgba(0,0,0,0) 40%, rgba(0,0,0,.10)); pointer-events:none}
+    .section-title{font-size:22px;font-weight:600;color:var(--dark)}
+    .section-sub{font-size:13px;color:#6b7484;max-width:420px}
 
-    .hero__copy{
-      background:linear-gradient(180deg, rgba(255,255,255,.98), rgba(253,246,232,.98));
-      border:1px solid rgba(226,200,147,.45); border-radius:var(--radius); box-shadow:var(--shadow);
-      padding:30px; display:flex; flex-direction:column; justify-content:center; gap:14px;
+    .cards-grid{
+      display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;
     }
-    .eyebrow{ color:var(--gold-ink); font-size:12px; letter-spacing:.22em; text-transform:uppercase }
-    h1{ margin:0; font-family:"Playfair Display",serif; font-size:46px; line-height:1.08; letter-spacing:.3px; color:#1f2b35 }
-    .lead{ color:#3b3b3b }
-
-    /* BUTTONS */
-    .cta{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:14px 18px; border-radius:14px; border:1px solid #103A54;
-      background:var(--navy); color:#fff; text-decoration:none; font-weight:600;
-      box-shadow:0 8px 18px rgba(25,75,108,.22); transition:.2s ease;
-    }
-    .cta:hover{ transform:translateY(-2px); box-shadow:0 12px 22px rgba(25,75,108,.30) }
-    .cta--ghost{ background:linear-gradient(180deg,#fff,var(--sand)); color:#2c2a2a; border:1px solid var(--line) }
-    .cta--ghost:hover{ transform:translateY(-2px); box-shadow:0 8px 18px rgba(226,200,147,.20) }
-
-    /* SECTIONS */
-    section{ max-width:1100px; margin:34px auto; padding:0 20px }
-    .section-title{
-      font-family:"Playfair Display",serif; font-size:32px; margin:0 0 18px; letter-spacing:.2px; color:#1f2b35;
-      position:relative; display:inline-block;
-    }
-    .section-title::after{
-      content:""; position:absolute; left:0; right:-6px; bottom:-8px; height:3px;
-      background:linear-gradient(90deg, rgba(226,200,147,.9), rgba(226,200,147,.18));
-      border-radius:999px;
-    }
-
-    .cards{ display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:16px }
     .card{
-      background:rgba(255,255,255,.98); border-radius:18px; padding:16px;
-      border:1px solid rgba(226,200,147,.38); box-shadow:var(--shadow);
-      display:flex; flex-direction:column; gap:10px; transition:transform .15s ease, box-shadow .15s ease;
+      background:var(--card-bg);border-radius:var(--radius-lg);
+      padding:18px 16px 18px;
+      border:1px solid var(--border-soft);
+      box-shadow:0 8px 18px rgba(14,33,58,.06);
+      display:flex;flex-direction:column;gap:8px;
     }
-    .card:hover{ transform:translateY(-2px); box-shadow:0 18px 38px rgba(25,75,108,.16) }
-    .card h3{ margin:2px 0 2px; font-size:18px; color:#192f41 }
-    .muted{ color:var(--muted) }
-    .card video{ width:100%; border-radius:12px; display:block; background:#000 }
+    .card-icon{
+      width:34px;height:34px;border-radius:14px;
+      background:rgba(8,106,166,.06);
+      display:flex;align-items:center;justify-content:center;font-size:18px;
+    }
+    .card-title{font-weight:600;font-size:14px;color:var(--dark)}
+    .card-text{font-size:12px;color:#687387}
+    .card-tag{margin-top:4px;font-size:11px;color:#9ba5b8}
 
-    /* ===== PHOTOS – Pinterest-style tabs (Carousel & Masonry) ===== */
-    #photos .wrap{
-      position:relative; overflow:hidden;
+    .product-layout{
+      display:grid;
+      grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);
+      gap:26px;align-items:stretch;
+    }
+    .product-main{
+      background:#fff;border-radius:var(--radius-lg);
+      padding:22px 22px 20px;
+      border:1px solid var(--border-soft);
+      box-shadow:0 10px 26px rgba(14,33,58,.07);
+    }
+    .product-pill{
+      font-size:11px;text-transform:uppercase;letter-spacing:.12em;
+      color:#8c96a7;margin-bottom:6px;
+    }
+    .product-heading{font-size:18px;font-weight:600;margin-bottom:10px;color:var(--dark)}
+    .product-lead{font-size:13px;color:#5c6575;margin-bottom:12px}
+    .product-list{
+      font-size:12px;padding-left:16px;color:#556072;margin-bottom:16px;
+    }
+    .product-meta{
+      display:flex;justify-content:space-between;align-items:center;
+      gap:12px;font-size:11px;color:#7a8497;
+    }
+
+    .product-side{
+      background:#0d1722;color:#e5eeff;
+      border-radius:var(--radius-lg);
+      padding:20px 18px 18px;
+      position:relative;overflow:hidden;
+      box-shadow:var(--shadow-soft);
+    }
+    .product-side::before{
+      content:"";position:absolute;inset:-40%;
       background:
-        radial-gradient(700px 320px at 0% 0%, rgba(226,200,147,.12) 0%, transparent 60%),
-        radial-gradient(600px 260px at 100% 20%, rgba(25,75,108,.08) 0%, transparent 55%),
-        linear-gradient(180deg, rgba(255,253,248,.92), rgba(250,246,236,.92));
-      border:1px solid rgba(226,200,147,.45);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:22px;
+        radial-gradient(circle at 0% 0%,rgba(58,198,255,.35),transparent 60%),
+        radial-gradient(circle at 100% 100%,rgba(199,165,74,.4),transparent 60%);
+      opacity:.9;z-index:0;
+    }
+    .product-side-inner{position:relative;z-index:1}
+    .product-side-title{font-size:14px;font-weight:600;margin-bottom:6px}
+    .product-side-text{font-size:12px;color:#c5d1eb;margin-bottom:16px}
+    .product-note{font-size:11px;color:#a5b4d8;margin-top:4px}
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);
+      gap:26px;align-items:start;
+    }
+    .contact-card{
+      background:#fff;border-radius:var(--radius-lg);
+      padding:20px 18px;
+      border:1px solid var(--border-soft);
+      box-shadow:0 10px 24px rgba(10,25,48,.08);
+    }
+    .contact-row{
+      display:flex;gap:14px;align-items:flex-start;
+      font-size:13px;color:#4c5668;margin-bottom:10px;
+    }
+    .contact-label{
+      font-weight:600;min-width:70px;
+      color:var(--dark);font-size:12px;
+    }
+    form label{
+      display:block;font-size:12px;
+      font-weight:500;margin-bottom:4px;color:#3e4858;
+    }
+    input,textarea{
+      width:100%;border-radius:10px;
+      border:1px solid var(--border-soft);
+      padding:9px 10px;font-family:inherit;font-size:13px;
+      outline:none;background:#f9fbff;margin-bottom:10px;
+    }
+    textarea{resize:vertical;min-height:90px}
+    input:focus,textarea:focus{
+      border-color:var(--primary);
+      box-shadow:0 0 0 1px rgba(8,106,166,.2);
+      background:#fff;
     }
 
-    /* Tabs */
-    .tabs{display:flex; gap:8px; margin:6px 0 16px}
-    .tab{appearance:none; border:1px solid var(--line); background:linear-gradient(180deg,#fff,var(--sand));
-      border-radius:999px; padding:8px 12px; font-weight:600; color:#21313f; cursor:pointer}
-    .tab.active{border-color:rgba(226,200,147,.9); box-shadow:0 6px 16px rgba(25,75,108,.08)}
-
-    /* Carousel */
-    #photos .carousel{position:relative}
-    #photos .carousel__viewport{overflow:hidden}
-    #photos .carousel__track{display:flex; transition:transform .45s ease}
-    #photos .carousel__slide{flex:0 0 100%}
-    #photos .carousel__grid{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px}
-
-    /* arrows + dots */
-    #photos .cnav{position:absolute; inset:auto 0 0 0; top:50%; transform:translateY(-50%);
-      display:flex; justify-content:space-between; padding:0 6px; pointer-events:none}
-    #photos .cbtn{pointer-events:auto; width:42px; height:42px; border-radius:50%;
-      display:grid; place-items:center; cursor:pointer; background:rgba(255,255,255,.96);
-      border:1px solid rgba(226,200,147,.5); box-shadow:var(--shadow)}
-    #photos .dots{display:flex; justify-content:center; gap:8px; margin-top:12px}
-    #photos .dot{width:8px; height:8px; border-radius:999px; background:rgba(25,75,108,.28); border:none; cursor:pointer}
-    #photos .dot.active{background:var(--navy)}
-
-    /* Tiles shared */
-    .tile{position:relative; overflow:hidden; border-radius:16px; background:linear-gradient(180deg,#fff,var(--sand));
-      border:1px solid rgba(226,200,147,.38); box-shadow:0 10px 26px rgba(25,75,108,.10); transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease; cursor:zoom-in}
-    .tile:hover{ transform:translateY(-2px); box-shadow:0 16px 36px rgba(25,75,108,.16); border-color:rgba(226,200,147,.68) }
-    .tile img{ width:100%; height:100%; object-fit:cover; display:block }
-    .p23{ aspect-ratio:2 / 3 } .p34{ aspect-ratio:3 / 4 } .p916{ aspect-ratio:9 / 16 }
-
-    /* Save button (Pinterest vibe) */
-    .pin-save{position:absolute; top:10px; right:10px; padding:8px 12px; border-radius:999px; font-weight:700; font-size:13px;
-      background:linear-gradient(180deg, #fff, #f6f0e4); color:#1f2b35; border:1px solid rgba(226,200,147,.7);
-      box-shadow:0 8px 16px rgba(25,75,108,.12); opacity:0; transform:translateY(-6px); transition:.18s ease}
-    .tile:hover .pin-save{opacity:1; transform:translateY(0)}
-
-    /* Masonry */
-    .masonry{display:none}
-    .masonry.active{display:block}
-    .masonry__cols{column-count:4; column-gap:14px}
-    .masonry__item{break-inside:avoid; margin:0 0 14px; position:relative}
-    .masonry__item img{width:100%; height:auto; display:block; border-radius:16px; border:1px solid rgba(226,200,147,.38); box-shadow:0 10px 26px rgba(25,75,108,.10)}
-
-    /* LIGHTBOX */
-    .lb{ position:fixed; inset:0; display:none; align-items:center; justify-content:center; padding:24px; background:rgba(0,0,0,.55); backdrop-filter:blur(2px); z-index:2000 }
-    .lb.open{ display:flex }
-    .lb__img{ max-width:min(92vw,1100px); max-height:86vh; border-radius:16px; display:block; box-shadow:0 24px 60px rgba(0,0,0,.32); background:#fff; border:1px solid rgba(231,221,188,.6) }
-    .lb__close{ position:fixed; top:14px; right:14px; background:rgba(255,255,255,.94); border:1px solid rgba(226,200,147,.7); border-radius:999px; padding:8px 12px; font-weight:600; color:#333; cursor:pointer; box-shadow:var(--shadow) }
-
-    /* FOOTER */
-    .footer{padding:40px 20px; text-align:center; color:#756f6d}
-    .socials{ margin-top:12px; display:flex; gap:14px; justify-content:center; align-items:center }
-    .socials a{ width:34px; height:34px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; background:#1c1b1b; color:#fff; text-decoration:none; transition:transform .12s ease, opacity .12s ease}
-    .socials a:hover{ transform:translateY(-2px); opacity:.9 } .socials svg{ width:18px; height:18px; fill:#fff; display:block }
-
-    /* RESPONSIVE */
-    @media (max-width:1100px){ #photos .carousel__grid{grid-template-columns:repeat(3, minmax(0,1fr));} .masonry__cols{column-count:3} }
-    @media (max-width:980px){
-      .hero{ grid-template-columns:1fr }
-      .hero__grid{ grid-auto-rows:140px }
-      h1{ font-size:38px }
-    }
-    @media (max-width:800px){ #photos .carousel__grid{grid-template-columns:repeat(2,minmax(0,1fr))} .masonry__cols{column-count:2} }
-    @media (max-width:760px){
-      .menu{ display:none }              /* hide desktop links */
-      .hamburger{ display:inline-flex }  /* show hamburger */
-      .menu-panel{ display:block; transform:translateY(-6px); opacity:0; pointer-events:none; }
-      .menu-open .menu-panel{ transform:translateY(0); opacity:1; pointer-events:auto; }
-      .menu-open .menu-overlay{ display:block; }
-    }
-    @media (max-width:640px){
-      .brand{ font-size:18px }
-      .hero__grid{ grid-auto-rows:120px }
-      h1{ font-size:32px }
-      :root{ --nav-h:60px }
+    footer{
+      padding:20px;border-top:1px solid var(--border-soft);
+      font-size:11px;color:#7b8596;
+      text-align:center;background:#f3f5fa;
     }
 
-    /* Soft fade-in for images */
-    .reveal{opacity:0; transform:translateY(8px); filter:saturate(.9); transition:opacity .5s ease, transform .5s ease, filter .5s ease}
-    .reveal.in{opacity:1; transform:none; filter:none}
+    @media(max-width:900px){
+      .hero,.product-layout,.contact-grid{
+        grid-template-columns:minmax(0,1fr);
+      }
+      .hero{padding-top:32px}
+      nav ul{display:none}
+      .cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media(max-width:600px){
+      .cards-grid{grid-template-columns:minmax(0,1fr)}
+      .section-header{flex-direction:column;align-items:flex-start}
+      .hero-card{margin-top:8px}
+    }
   </style>
 </head>
 <body>
 
-  <!-- decorative background -->
-  <div class="bg-ornaments" aria-hidden="true"></div>
-  <div class="grain" aria-hidden="true"></div>
-
-  <!-- NAV -->
-  <nav class="nav" aria-label="Primary">
-    <div class="nav__inner">
-      <div class="brand">Fatima Rose Keita</div>
-
-      <!-- Desktop menu -->
-      <div class="menu" role="menubar">
-        <a href="#about" role="menuitem">About</a>
-        <a href="#photos" role="menuitem">Photography</a>
-        <a href="#videos" role="menuitem">My Videos</a>
-        <a href="#testimonials" role="menuitem">Brand Testimonials</a>
-        <a href="#contact" role="menuitem">Contact</a>
-      </div>
-
-      <!-- Mobile hamburger -->
-      <button class="hamburger" id="menuBtn" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
-      </button>
+<header>
+  <div class="nav-container">
+    <div class="logo">
+      <div class="logo-mark">L</div>
+      <div class="logo-text">LEVELS IT</div>
     </div>
+    <nav>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#products">Antivirus</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact" class="btn-nav">Get I.T. Help</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-    <!-- Mobile dropdown panel -->
-    <div class="menu-panel" id="mobileMenu" role="menu">
-      <a href="#about" role="menuitem">About</a>
-      <a href="#photos" role="menuitem">Photography</a>
-      <a href="#videos" role="menuitem">Videos</a>
-      <a href="#testimonials" role="menuitem">Testimonials</a>
-      <a href="#contact" role="menuitem">Contact</a>
-    </div>
-  </nav>
-
-  <!-- Backdrop overlay -->
-  <div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
-
+<main>
   <!-- HERO -->
-  <header class="hero" role="banner">
-    <div class="hero__grid" aria-hidden="true">
-      <img class="hero__img tall reveal"  src="assets/1.jpg" alt="Lifestyle portrait with product">
-      <img class="hero__img reveal"       src="assets/4.jpg" alt="Soft light product detail">
-      <img class="hero__img wide reveal"  src="assets/3.jpg" alt="Editorial scene with skincare">
-      <img class="hero__img tall reveal"  src="assets/2.jpg" alt="Calm morning routine">
-      <img class="hero__img reveal"       src="assets/6.jpg" alt="Flat lay textures and props">
-      <img class="hero__img reveal"       src="assets/5.jpg" alt="Hands with serum bottle">
-      <span class="hero__overlay"></span>
+  <section class="hero">
+    <div>
+      <div class="hero-badge">
+        <span class="hero-badge-pill">Since 2015</span>
+        For all your I.T. needs across security, support, cloud & phones.
+      </div>
+      <h1>
+        For all your <span>I.T. needs</span> – without the chaos.
+      </h1>
+      <p class="hero-sub">
+        LEVELS IT keeps your business secure, connected and supported —
+        from antivirus and cybersecurity to internet, cloud and business phone solutions.
+      </p>
+
+      <div class="hero-ctas">
+        <button class="btn-primary">Schedule a quick chat</button>
+        <button class="btn-secondary">View antivirus plan</button>
+      </div>
+
+      <p class="hero-footnote">
+        Australia-based MSP • Friendly support • No capes, just solid I.T. superpowers.
+      </p>
     </div>
 
-    <div class="hero__copy">
-      <span class="eyebrow">UGC • Wellness • Lifestyle • Self-Care</span>
-      <h1>Portfolio</h1>
-      <p class="lead">I craft soft‑yet‑strong content that turns products into emotional brand stories — designed for engagement, trust, and conversions.</p>
-      <div style="display:flex; gap:10px; flex-wrap:wrap">
-        <a class="cta" href="#videos">See Work →</a>
-        <a class="cta cta--ghost" href="#contact">Work With Me</a>
-      </div>
-    </div>
-  </header>
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="hero-card-inner">
+          <div class="hero-card-title">Managed I.T. & Security Snapshot</div>
+          <div class="hero-card-sub">
+            A simple view of how LEVELS IT keeps systems protected and running.
+          </div>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="cards">
-      <div class="card reveal">
-        <span class="eyebrow">About</span>
-        <h3 style="margin:4px 0 6px; font-family:'Playfair Display',serif; font-size:22px">Fatima Keita</h3>
-        <p class="muted">UGC & content creator based in the UK. I build feminine, intentional stories for wellness, skincare, and lifestyle brands.</p>
-      </div>
-      <div class="card reveal">
-        <span class="eyebrow">My Value</span>
-        <p class="muted">Authentic visuals + strategy. Scroll‑stopping Reels, aesthetic photos, and ad‑ready edits with hooks, captions, and conversion‑minded CTAs.</p>
+          <div class="hero-metrics">
+            <div class="metric">
+              <div class="metric-label">Webroot endpoints</div>
+              <div class="metric-value">Multi-device</div>
+              <div class="metric-foot">PCs, laptops & servers</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Protection</div>
+              <div class="metric-value">Real-time</div>
+              <div class="metric-foot">viruses, ransomware, phishing</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Scan engine</div>
+              <div class="metric-value">Cloud</div>
+              <div class="metric-foot">fast, lightweight checks</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">From</div>
+              <div class="metric-value">$9.95/m</div>
+              <div class="metric-foot">cancel any time</div>
+            </div>
+          </div>
+
+          <div class="hero-card-footer">
+            <span>One plan, one price, no confusing tiers.</span>
+            <span class="pill-safe">Webroot managed by LEVELS IT</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- PHOTOS -->
-  <section id="photos">
-    <h2 class="section-title">Photography</h2>
-    <div class="wrap">
-
-      <!-- View tabs -->
-      <div class="tabs" role="tablist" aria-label="Choose photo layout">
-        <button class="tab active" role="tab" aria-selected="true" aria-controls="ph-carousel" data-tab="carousel">Carousel</button>
-        <button class="tab" role="tab" aria-selected="false" aria-controls="ph-masonry" data-tab="masonry">Masonry</button>
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-inner">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">What LEVELS IT takes care of</h2>
+          <p class="section-sub">
+            From security to phones, we untangle the messy parts of technology
+            so your business can just get on with work.
+          </p>
+        </div>
       </div>
 
-      <!-- CAROUSEL VIEW -->
-      <div id="ph-carousel" class="carousel" aria-label="Photo carousel">
-        <div class="carousel__viewport" tabindex="0">
-          <div class="carousel__track">
+      <div class="cards-grid">
+        <article class="card">
+          <div class="card-icon">🛡️</div>
+          <h3 class="card-title">Security</h3>
+          <p class="card-text">
+            Managed protection that keeps hackers, malware and scams in the
+            “nice try” pile while you get on with your day.
+          </p>
+          <div class="card-tag">Webroot antivirus • Policy-driven security</div>
+        </article>
 
-            <!-- Slide 1 -->
-            <div class="carousel__slide">
-              <div class="carousel__grid">
-                <div class="tile p34"  data-full="assets/shot1.jpg"><button class="pin-save" aria-label="Save photo">Save</button><img class="reveal" src="assets/shot1.jpg"  alt="Golden hour portrait holding product" loading="lazy"></div>
-                <div class="tile p34"  data-full="assets/shot2.jpg"><button class="pin-save" aria-label="Save photo">Save</button><img class="reveal" src="assets/shot2.jpg"  alt="Serum texture on hands" loading="lazy"></div>
-                <div class="tile p916" data-full="assets/shot3.jpg"><button class="pin-save" aria-label="Save photo">Save</button><img class="reveal" src="assets/shot3.jpg"  alt="Ultra‑tall editorial with bottle" loading="lazy"></div>
-                <div class="tile p34"  data-full="assets/shot4.jpg"><button class="pin-save" aria-label="Save photo">Save</button><img class="reveal" src="assets/shot4.jpg"  alt="Mirror portrait with product" loading="lazy"></div>
-              </div>
-            </div>
+        <article class="card">
+          <div class="card-icon">🧰</div>
+          <h3 class="card-title">Managed &amp; Tailored I.T.</h3>
+          <p class="card-text">
+            Ongoing support, troubleshooting and system setup designed around
+            how your business actually works — not generic one-size-fits-all.
+          </p>
+          <div class="card-tag">MSP support • Servers • Devices</div>
+        </article>
 
-            <!-- Slide 2 -->
-            <div class="carousel__slide">
-              <div class="carousel__grid">
-                <div class="tile p23"  data-full="assets/shot5.jpg"><button class="pin-save" aria-label="Save photo">Save</button><img class="reveal" src="assets/shot5.jpg"  alt="Outdoor detail with tote and bottle" loading="lazy"></div>
-                <div class="tile p34"  data-full="assets/shot6.jpg"><button class="pin-save" aria-label="Save photo">Save</button><img class="reveal" src="assets/shot6.jpg"  alt="Routine: applying cream" loading="lazy"></div>
-                <div class="tile p34"  data-full="assets/shot7.jpg"><button class="pin-save" aria-label="Save photo">Save</button><img class="reveal" src="assets/shot7.jpg"  alt="Editorial portrait with product" loading="lazy"></div>
-                <div class="tile p916" data-full="assets/shot8.jpg"><button class="pin-save" aria-label="Save photo">Save</button><img class="reveal" src="assets/shot8.jpg"  alt="Phone‑tall packaging vignette" loading="lazy"></div>
-              </div>
-            </div>
+        <article class="card">
+          <div class="card-icon">☁️</div>
+          <h3 class="card-title">Cloud &amp; Internet</h3>
+          <p class="card-text">
+            Help choosing and running the right cloud tools plus solid,
+            reliable internet so you’re not stuck watching loading spinners.
+          </p>
+          <div class="card-tag">Cloud migrations • Internet solutions</div>
+        </article>
 
-            <!-- Slide 3 -->
-            <div class="carousel__slide">
-              <div class="carousel__grid">
-                <div class="tile p23"  data-full="assets/shot9.jpg"><button class="pin-save" aria-label="Save photo">Save</button><img class="reveal" src="assets/shot9.jpg"  alt="BTS scene with diffuser" loading="lazy"></div>
-                <div class="tile p34"  data-full="assets/shot10.jpg"><button class="pin-save" aria-label="Save photo">Save</button><img class="reveal" src="assets/shot10.jpg" alt="Ingredients still‑life with dropper" loading="lazy"></div>
-                <div class="tile p34"  data-full="assets/shot11.jpg"><button class="pin-save" aria-label="Save photo">Save</button><img class="reveal" src="assets/shot11.jpg" alt="Detail portrait with glossed lips and product" loading="lazy"></div>
-                <div class="tile p23"  data-full="assets/shot12.jpg"><button class="pin-save" aria-label="Save photo">Save</button><img class="reveal" src="assets/shot12.jpg" alt="Before/after bottles on marble" loading="lazy"></div>
-              </div>
-            </div>
+        <article class="card">
+          <div class="card-icon">📞</div>
+          <h3 class="card-title">Business Phone (VoIP)</h3>
+          <p class="card-text">
+            Modern phone systems with clear calls, flexible routing and
+            features that make your team sound like they’re all in one office.
+          </p>
+          <div class="card-tag">VoIP • virtual reception • call flows</div>
+        </article>
+      </div>
+    </div>
+  </section>
 
+  <!-- ANTIVIRUS PRODUCT -->
+  <section id="products">
+    <div class="section-inner">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">LEVELS IT Webroot Antivirus</h2>
+          <p class="section-sub">
+            A simple, all-inclusive antivirus plan — one package, one price and
+            everything managed for you.
+          </p>
+        </div>
+      </div>
+
+      <div class="product-layout">
+        <div class="product-main">
+          <div class="product-pill">Managed antivirus plan</div>
+          <h3 class="product-heading">Full protection without confusing bundles.</h3>
+          <p class="product-lead">
+            Cybersecurity shouldn’t feel like reading a menu with a hundred
+            add-ons. LEVELS IT deploys and manages Webroot for you so every
+            protected device is watched, updated and ready.
+          </p>
+
+          <ul class="product-list">
+            <li>Real-time defence against viruses, ransomware and phishing attempts.</li>
+            <li>Automatic updates so protection stays current around the clock.</li>
+            <li>Cloud-based scanning that’s fast and light on system resources.</li>
+            <li>Coverage that can span PCs, laptops and servers in your environment.</li>
+            <li>No “basic vs premium” tricks — just one clear plan.</li>
+          </ul>
+
+          <div class="product-meta">
+            <span>From <strong>$9.95 per month</strong> for full access. Cancel whenever you need to.</span>
+            <button class="btn-secondary">Protect my devices</button>
           </div>
         </div>
 
-        <!-- arrows -->
-        <div class="cnav" aria-hidden="false">
-          <button class="cbtn" type="button" aria-label="Previous" data-dir="prev">
-            <svg viewBox="0 0 24 24" width="20" height="20"><path d="M15 6l-6 6 6 6" fill="none" stroke="#194B6C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <button class="cbtn" type="button" aria-label="Next" data-dir="next">
-            <svg viewBox="0 0 24 24" width="20" height="20"><path d="M9 6l6 6-6 6" fill="none" stroke="#194B6C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-        </div>
-
-        <!-- dots -->
-        <div class="dots" aria-label="Slide navigation">
-          <button class="dot" aria-label="Go to slide 1"></button>
-          <button class="dot" aria-label="Go to slide 2"></button>
-          <button class="dot" aria-label="Go to slide 3"></button>
-        </div>
-      </div>
-
-      <!-- MASONRY VIEW -->
-      <div id="ph-masonry" class="masonry" aria-label="Pinterest-style grid">
-        <div class="masonry__cols">
-          <!-- Reuse same assets for a cohesive grid -->
-          <div class="masonry__item tile" data-full="assets/shot1.jpg"><button class="pin-save" aria-label="Save photo">Save</button><img class="reveal" src="assets/shot1.jpg" alt="Golden hour portrait holding product"></div>
-          <div class="masonry__item tile" data-full="assets/shot2.jpg"><button class="pin-save" aria-label="Save photo">Save</button><img class="reveal" src="assets/shot2.jpg" alt="Serum texture on hands"></div>
-          <div class="masonry__item tile" data-full="assets/shot3.jpg"><button class="pin-save" aria-label="Save photo">Save</button><img class="reveal" src="assets/shot3.jpg" alt="Ultra‑tall editorial with bottle"></div>
-          <div class="masonry__item tile" data-full="assets/shot4.jpg"><button class="pin-save" aria-label="Save photo">Save</button><img class="reveal" src="assets/shot4.jpg" alt="Mirror portrait with product"></div>
-          <div class="masonry__item tile" data-full="assets/shot5.jpg"><button class="pin-save" aria-label="Save photo">Save</button><img class="reveal" src="assets/shot5.jpg" alt="Outdoor detail with tote and bottle"></div>
-          <div class="masonry__item tile" data-full="assets/shot6.jpg"><button class="pin-save" aria-label="Save photo">Save</button><img class="reveal" src="assets/shot6.jpg" alt="Routine: applying cream"></div>
-          <div class="masonry__item tile" data-full="assets/shot7.jpg"><button class="pin-save" aria-label="Save photo">Save</button><img class="reveal" src="assets/shot7.jpg" alt="Editorial portrait with product"></div>
-          <div class="masonry__item tile" data-full="assets/shot8.jpg"><button class="pin-save" aria-label="Save photo">Save</button><img class="reveal" src="assets/shot8.jpg" alt="Phone‑tall packaging vignette"></div>
-          <div class="masonry__item tile" data-full="assets/shot9.jpg"><button class="pin-save" aria-label="Save photo">Save</button><img class="reveal" src="assets/shot9.jpg" alt="BTS scene with diffuser"></div>
-          <div class="masonry__item tile" data-full="assets/shot10.jpg"><button class="pin-save" aria-label="Save photo">Save</button><img class="reveal" src="assets/shot10.jpg" alt="Ingredients still‑life with dropper"></div>
-          <div class="masonry__item tile" data-full="assets/shot11.jpg"><button class="pin-save" aria-label="Save photo">Save</button><img class="reveal" src="assets/shot11.jpg" alt="Detail portrait with glossed lips and product"></div>
-          <div class="masonry__item tile" data-full="assets/shot12.jpg"><button class="pin-save" aria-label="Save photo">Save</button><img class="reveal" src="assets/shot12.jpg" alt="Before/after bottles on marble"></div>
-        </div>
+        <aside class="product-side">
+          <div class="product-side-inner">
+            <h4 class="product-side-title">How it works with LEVELS IT</h4>
+            <p class="product-side-text">
+              We handle the rollout, policy setup, monitoring and alerts.
+              You get monthly insight into what’s been blocked and how your
+              devices are tracking, without needing to touch the console.
+            </p>
+            <button class="btn-primary" style="font-size:12px;padding:9px 16px;">
+              Talk about antivirus &amp; security
+            </button>
+            <p class="product-note">
+              Already running another antivirus? We can review your current
+              setup and plan a smooth switch with minimal disruption.
+            </p>
+          </div>
+        </aside>
       </div>
     </div>
   </section>
 
-  <!-- VIDEOS -->
-  <section id="videos">
-   
-
-    <!-- Skincare -->
-    <h3 class="section-title" style="font-size:24px; margin-top:18px">Skincare</h3>
-    <div class="cards">
-      <div class="card reveal">
-        <video muted autoplay loop playsinline controls preload="metadata" poster="assets/posters/skincare1.jpg">
-          <source src="assets/video1.mp4" type="video/mp4">
-        </video>
-        <h3>Morning Hydration Routine</h3>
-        <p class="muted">Soft natural light, bouncy finish.</p>
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">About LEVELS IT</h2>
+          <p class="section-sub">
+            Turning tech headaches into organised, manageable systems since 2015.
+          </p>
+        </div>
       </div>
 
-      <div class="card reveal">
-        <video muted autoplay loop playsinline controls preload="metadata" poster="assets/posters/skincare2.jpg">
-          <source src="assets/skincare2.mp4" type="video/mp4">
-        </video>
-        <h3>GRWM</h3>
-        <p class="muted">Get‑ready‑with‑me skincare — cleanse, hydrate, glow.</p>
+      <div class="product-layout">
+        <div class="product-main">
+          <h3 class="product-heading">Making I.T. feel less like chaos.</h3>
+          <p class="product-lead">
+            LEVELS IT exists for people who would rather focus on their
+            business than wrestle printers, servers or mystery error messages.
+          </p>
+          <ul class="product-list">
+            <li>Experience across small businesses and everyday users who just want things to work.</li>
+            <li>From integration and setup to those “why is it doing that?” moments — we step in.</li>
+            <li>A focus on simplifying I.T. so your systems run smoothly in the background.</li>
+            <li>A friendly, slightly cheeky approach — expert help without heavy jargon or drama.</li>
+          </ul>
+        </div>
+
+        <aside class="product-side">
+          <div class="product-side-inner">
+            <h4 class="product-side-title">Ctrl + Alt + Fix</h4>
+            <p class="product-side-text">
+              Whether it’s I.T., cloud, internet or business phones, LEVELS IT
+              acts as your one stop for all the boring but critical tech layers
+              that keep your team moving.
+            </p>
+            <p class="product-note">
+              One partner to call instead of juggling multiple vendors — so when
+              something breaks, you always know who to talk to.
+            </p>
+          </div>
+        </aside>
       </div>
-
-      <div class="card reveal">
-        <video muted autoplay loop playsinline controls preload="metadata" poster="assets/posters/skincare3.jpg">
-          <source src="assets/video3.mp4" type="video/mp4">
-        </video>
-        <h3>Cleansing Balm Demo</h3>
-        <p class="muted">Balm‑to‑oil melt; make‑up removal.</p>
-      </div>
-    </div>
-
-    <!-- Makeup -->
-    <h3 class="section-title" style="font-size:24px; margin-top:28px">Makeup</h3>
-    <div class="cards">
-      <div class="card reveal">
-        <video muted autoplay loop playsinline controls preload="metadata" poster="assets/posters/makeup1.jpg">
-          <source src="assets/makeup1.mp4" type="video/mp4">
-        </video>
-        <h3>Pre & Post Routine</h3>
-        <p class="muted">Primer‑to‑setting‑spray routine for a fresh, long‑wear look — natural and cozy on camera.</p>
-      </div>
-
-      <div class="card reveal">
-        <video muted autoplay loop playsinline controls preload="metadata" poster="assets/posters/makeup2.jpg">
-          <source src="assets/makeup2.mp4" type="video/mp4">
-        </video>
-        <h3>Everyday Makeup, Naturally</h3>
-        <p class="muted">Seamless product moment inside a real routine — skin‑like glow, fresh tone, and effortless wear on camera.</p>
-      </div>
-
-      <div class="card reveal">
-        <video muted autoplay loop playsinline controls preload="metadata" poster="assets/posters/makeup3.jpg">
-          <source src="assets/makeup3.mp4" type="video/mp4">
-        </video>
-        <h3>Skin Tint + Conceal</h3>
-        <p class="muted">Skin‑first, even tone, natural wear.</p>
-      </div>
-    </div>
-
-    <!-- Showcasing -->
-    <h3 class="section-title" style="font-size:24px; margin-top:28px">Showcasing</h3>
-    <div class="cards">
-      <div class="card reveal">
-        <video muted autoplay loop playsinline controls preload="metadata" poster="assets/posters/testimonial1.jpg">
-          <source src="assets/showcasing1.mp4" type="video/mp4">
-        </video>
-        <h3>Lip Oil Demo</h3>
-        <p class="muted">Tinted lip oil — juicy hydration, soft plump, and glassy pigment that pops on camera.</p>
-      </div>
-
-      <div class="card reveal">
-        <video muted autoplay loop playsinline controls preload="metadata" poster="assets/posters/testimonial2.jpg">
-          <source src="assets/showcasing2.mp4" type="video/mp4">
-        </video>
-        <h3>Sterling Silver Hoops</h3>
-        <p class="muted">Polished sterling; close‑up movement and everyday wear.</p>
-      </div>
-
-      <div class="card reveal">
-        <video muted autoplay loop playsinline controls preload="metadata" poster="assets/posters/testimonial3.jpg">
-          <source src="assets/showcasing3.mov" type="video/mp4">
-        </video>
-        <h3>Lip Combo Wear Test</h3>
-        <p class="muted">Lips look plush and hydrated; gloss cushions, lipstick adds soft and even color.</p>
-      </div>
-    </div>
-      
-    <!-- Testimonial -->
-    <h3 class="section-title" style="font-size:24px; margin-top:28px">Testimonial</h3>
-    <div class="cards">
-      <div class="card reveal">
-        <video muted autoplay loop playsinline controls preload="metadata" poster="assets/posters/testimonial1.jpg">
-          <source src="assets/testimonial1.mp4" type="video/mp4">
-        </video>
-        <h3>Showing Results</h3>
-        <p class="muted">Honest progression & skin check-ins.</p>
-      </div>
-
-      <div class="card reveal">
-        <video muted autoplay loop playsinline controls preload="metadata" poster="assets/posters/testimonial2.jpg">
-          <source src="assets/testimonial2.mp4" type="video/mp4">
-        </video>
-        <h3>First-Bite Review</h3>
-        <p class="muted">No filters, no trick shots — empty bowl speaks for itself.</p>
-      </div>
-
-      <div class="card reveal">
-        <video muted autoplay loop playsinline controls preload="metadata" poster="assets/posters/testimonial3.jpg">
-          <source src="assets/testimonial3.mp4" type="video/mp4">
-        </video>
-        <h3>Before / After</h3>
-        <p class="muted">Visible improvements in tone & texture.</p>
-      </div></div><div>
-    <!-- Organic Content -->
-    <h3 class="section-title" style="font-size:24px; margin-top:28px">Organic Content</h3>
-    <div class="cards">
-      <div class="card reveal">
-        <video muted autoplay loop playsinline controls preload="metadata" poster="assets/posters/organic1.jpg">
-          <source src="assets/organic1.mp4" type="video/mp4">
-        </video>
-        <h3>Sunday Reset</h3>
-        <p class="muted">Simple rituals — steam, serum, SPF — filmed in soft daylight for a calm, credible feel.</p>
-      </div>
-
-      <div class="card reveal">
-        <video muted autoplay loop playsinline controls preload="metadata" poster="assets/posters/organic2.jpg">
-          <source src="assets/organic2.mp4" type="video/mp4">
-        </video>
-        <h3>Morning Coffee & SPF</h3>
-        <p class="muted">Lifestyle‑first product moment that blends routine, texture, and tasteful branding.</p>
-      </div>
-
-      <div class="cardreveal">
-
-    </div>
-
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section id="testimonials">
-    <div class="card reveal" style="max-width:1100px; margin:0 auto">
-      <img
-        src="assets/brands.jpg"
-        alt="Collage of brand testimonial messages"
-        loading="lazy"
-        style="width:100%; display:block; border-radius:16px; border:1px solid rgba(226,200,147,.38); box-shadow:var(--shadow)"
-      >
-
-      <p class="muted" style="text-align:center; margin:12px 0 0; font-weight:600">
-        Real partner feedback — seamless communication, strategic creative, meaningful results.
-      </p>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact">
-    <div class="card reveal" style="max-width:860px; margin:0 auto">
-      <span class="eyebrow">Collaborations</span>
-      <h2 class="section-title" style="margin-top:6px">Let’s Create</h2>
-      <p class="muted">Tell me about your product and goals — I’ll share concepts within 24 hours.</p>
-
-      <form id="contactForm" style="display:grid; gap:12px">
-        <input id="name"   name="name"  placeholder="Your name" required
-               style="padding:12px 14px; border-radius:12px; border:1px solid var(--line)">
-        <input id="email"  name="email" type="email" placeholder="Your email" required
-               style="padding:12px 14px; border-radius:12px; border:1px solid var(--line)">
-        <textarea id="message" name="message" rows="4" placeholder="Your message" required
-                  style="padding:12px 14px; border-radius:12px; border:1px solid var(--line)"></textarea>
-
-        <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center">
-          <button class="cta" id="submitBtn" type="submit">Send Inquiry</button>
-          <a class="cta cta--ghost" id="mailtoBtn" href="#" rel="noopener">Open Gmail</a>
-          <span id="formStatus" class="muted" role="status" aria-live="polite"></span>
+    <div class="section-inner">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Contact LEVELS IT</h2>
+          <p class="section-sub">
+            Keep calm and reboot with us. If your tech is throwing a tantrum,
+            we’re here to steady things and get you back on track.
+          </p>
         </div>
-      </form>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-row">
+            <div class="contact-label">Call</div>
+            <div>02 8355 1619</div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-label">Email</div>
+            <div>support@levelsit.com.au</div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-label">Based in</div>
+            <div>Sydney, New South Wales, Australia</div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-label">Need help?</div>
+            <div>
+              Servers down, apps misbehaving or phones acting up —
+              send the problem our way and let us play tech hero.
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <form>
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="Your name" />
+
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="you@company.com" />
+
+            <label for="message">How can we help?</label>
+            <textarea id="message" placeholder="Tell us a little about your I.T. issue or setup..."></textarea>
+
+            <button type="submit" class="btn-primary" style="margin-top:4px;width:100%;">Send message</button>
+          </form>
+        </div>
+      </div>
     </div>
   </section>
+</main>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    © <span id="y"></span> Fatima Keita — UGC Creator
-    <div class="socials" aria-label="Social links">
-      <a href="https://www.instagram.com/keitaskam" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.8A5.2 5.2 0 1 1 6.8 13 5.2 5.2 0 0 1 12 7.8zm0 2A3.2 3.2 0 1 0 15.2 13 3.2 3.2 0 0 0 12 9.8zM18 6.5a1.3 1.3 0 1 1-1.3 1.3A1.3 1.3 0 0 1 18 6.5z"/></svg>
-      </a>
-      <a href="#" target="_blank" rel="noopener" aria-label="Facebook">
-        <svg viewBox="0 0 24 24"><path d="M22 12.06A10 10 0 1 0 10.94 22v-7h-2.1v-2.9h2.1V9.3c0-2.1 1.25-3.27 3.16-3.27.92 0 1.88.16 1.88.16v2.07h-1.06c-1.05 0-1.37.65-1.37 1.32v1.58h2.33l-.37 2.9h-1.96v7A10 10 0 0 0 22 12.06z"/></svg>
-      </a>
-      <a href="mailto:jeanetteferrater14@gmail.com" aria-label="Email for collaborations">
-        <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5Z"/></svg>
-      </a>
-      <a href="#" target="_blank" rel="noopener" aria-label="TikTok">
-        <svg viewBox="0 0 24 24"><path d="M21 8.1a7.3 7.3 0 0 1-4.2-1.4v7.2a6.1 6.1 0 1 1-5.7-6.1 6 6 0 0 1 1.7.26v2.8a3.3 3.3 0 1 0 2.4 3.18V2h2.6A4.7 4.7 0 0 0 21 6.7Z"/></svg>
-      </a>
-    </div>
-  </footer>
+<footer>
+  © LEVELS IT – All rights reserved. Website design concept prepared for Steven by Jeanette (demo only).
+</footer>
 
-  <!-- LIGHTBOX -->
-  <div class="lb" id="lb" aria-hidden="true">
-    <img class="lb__img" id="lbImg" alt="">
-    <button class="lb__close" type="button" id="lbClose" aria-label="Close">×</button>
-  </div>
-
-
-
-  
-
-  <script>
-    // dynamic year + lazy alt
-    document.getElementById('y').textContent = new Date().getFullYear();
-    document.querySelectorAll('img').forEach(img=>{
-      img.loading='lazy';
-      if(!img.alt) img.alt='Lifestyle image';
-    });
-
-    // Mobile menu
-    const body = document.body;
-    const btn = document.getElementById('menuBtn');
-    const panel = document.getElementById('mobileMenu');
-    const overlay = document.getElementById('menuOverlay');
-
-    function closeMenu(){
-      body.classList.remove('menu-open');
-      btn.setAttribute('aria-expanded','false');
-      btn.setAttribute('aria-label','Open menu');
-    }
-    function openMenu(){
-      body.classList.add('menu-open');
-      btn.setAttribute('aria-expanded','true');
-      btn.setAttribute('aria-label','Close menu');
-    }
-    btn.addEventListener('click', ()=>{ body.classList.contains('menu-open') ? closeMenu() : openMenu(); });
-    overlay.addEventListener('click', closeMenu);
-    window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeMenu(); });
-    panel.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeMenu));
-
-    // Lightbox
-    const lb = document.getElementById('lb');
-    const lbImg = document.getElementById('lbImg');
-    const lbClose = document.getElementById('lbClose');
-    function attachLightbox(){
-      document.querySelectorAll('#photos .tile').forEach(tile=>{
-        tile.addEventListener('click', (ev)=>{
-          // block if clicking the Save button
-          if(ev.target && ev.target.classList.contains('pin-save')) return;
-          const full = tile.getAttribute('data-full') || tile.querySelector('img').src;
-          lbImg.src = full;
-          lb.classList.add('open');
-          lb.setAttribute('aria-hidden','false');
-        });
-      });
-    }
-    function closeLB(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); lbImg.src=''; }
-    lbClose.addEventListener('click', closeLB);
-    lb.addEventListener('click', (e)=>{ if(e.target === lb) closeLB(); });
-    window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeLB(); });
-
-    // -------- CONTACT: Direct to Gmail (with mailto fallback) --------
-    (() => {
-      const TO_EMAIL = 'jeanetteferrater14@gmail.com';
-      const form      = document.getElementById('contactForm');
-      const submitBtn = document.getElementById('submitBtn');
-      const mailBtn   = document.getElementById('mailtoBtn');
-      const statusEl  = document.getElementById('formStatus');
-
-      function buildCompose() {
-        const name  = (document.getElementById('name').value || '').trim();
-        const email = (document.getElementById('email').value || '').trim();
-        const msg   = (document.getElementById('message').value || '').trim();
-
-        const subject   = `UGC Inquiry from ${name || 'a potential client'}`;
-        const plainBody =
-`Hi Fatima,
-
-${msg || '(message left empty)'}
-
-— ${name || 'Anonymous'}${email ? `
-Email: ${email}` : ''}`;
-
-        const gmail = `https://mail.google.com/mail/?view=cm&fs=1&to=${
-          encodeURIComponent(TO_EMAIL)
-        }&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(plainBody)}`;
-
-        const nl = '%0D%0A';
-        const mailtoBody =
-          'Hi Fatima,' + nl + nl +
-          encodeURIComponent(msg || '(message left empty)') + nl + nl +
-          encodeURIComponent('— ' + (name || 'Anonymous')) +
-          (email ? nl + encodeURIComponent('Email: ' + email) : '');
-        const mailto = `mailto:${encodeURIComponent(TO_EMAIL)}?subject=${encodeURIComponent(subject)}&body=${mailtoBody}`;
-
-        return { gmail, mailto, plainBody };
-      }
-
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Opening Gmail…';
-        statusEl.textContent = '';
-
-        const { gmail, mailto, plainBody } = buildCompose();
-        try { await navigator.clipboard.writeText(plainBody); } catch {}
-
-        // Go to Gmail compose
-        window.location.assign(gmail);
-
-        // Quiet fallback to mailto if Gmail can't open
-        setTimeout(() => { window.location.href = mailto; }, 1200);
-
-        // Re-enable in case the user returns
-        setTimeout(() => { submitBtn.disabled = false; submitBtn.textContent = 'Send Inquiry'; }, 2500);
-      });
-
-      // Secondary button: open Gmail immediately (same fallback)
-      mailBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const { gmail, mailto } = buildCompose();
-        window.location.assign(gmail);
-        setTimeout(() => { window.location.href = mailto; }, 1200);
-      });
-    })();
-
-    // -------- PHOTOS: Carousel (autoplay ~2s) + Tabs --------
-    (() => {
-      const root  = document.querySelector('#photos .wrap');
-      if (!root) return;
-
-      const tabs = root.querySelectorAll('.tab');
-      const carouselEl = document.getElementById('ph-carousel');
-      const masonryEl  = document.getElementById('ph-masonry');
-
-      function setView(view){
-        const isCarousel = view === 'carousel';
-        carouselEl.style.display = isCarousel ? 'block' : 'none';
-        masonryEl.classList.toggle('active', !isCarousel);
-        tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === view));
-      }
-
-      tabs.forEach(t => t.addEventListener('click', () => setView(t.dataset.tab)));
-      setView('carousel');
-
-      // Carousel logic
-      const track  = carouselEl.querySelector('.carousel__track');
-      const slides = carouselEl.querySelectorAll('.carousel__slide');
-      const prev   = carouselEl.querySelector('[data-dir="prev"]');
-      const next   = carouselEl.querySelector('[data-dir="next"]');
-      const dots   = carouselEl.querySelectorAll('.dot');
-
-      let i = 0; let timer = null; const INTERVAL_MS = 2000; // 2s
-      function go(n){ i = (n + slides.length) % slides.length; track.style.transform = `translateX(-${i * 100}%)`; dots.forEach((d,k)=>d.classList.toggle('active',k===i)); }
-      function play(){ if (timer) return; timer = setInterval(() => go(i + 1), INTERVAL_MS); }
-      function stop(){ clearInterval(timer); timer = null; }
-
-      prev.addEventListener('click', () => { stop(); go(i - 1); play(); });
-      next.addEventListener('click', () => { stop(); go(i + 1); play(); });
-      dots.forEach((d, k) => d.addEventListener('click', () => { stop(); go(k); play(); }));
-
-      // Swipe support
-      let sx = 0, dx = 0;
-      track.addEventListener('touchstart', e => { stop(); sx = e.touches[0].clientX; dx = 0; }, {passive:true});
-      track.addEventListener('touchmove',  e => { dx = e.touches[0].clientX - sx; }, {passive:true});
-      track.addEventListener('touchend',   () => { if (Math.abs(dx) > 50) go(i + (dx < 0 ? 1 : -1)); play(); });
-
-      root.addEventListener('mouseenter', stop);
-      root.addEventListener('mouseleave', play);
-      root.addEventListener('focusin', stop);
-      root.addEventListener('focusout', play);
-      document.addEventListener('visibilitychange', () => { document.hidden ? stop() : play(); });
-
-      go(0); play();
-
-      // Attach lightbox click handlers for all tiles
-      attachLightbox();
-    })();
-
-    // -------- Soft reveal on scroll --------
-    (() => {
-      const els = document.querySelectorAll('.reveal');
-      const io = new IntersectionObserver(entries => {
-        entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-      }, {threshold: .12});
-      els.forEach(el => io.observe(el));
-    })();
-
-    // Make sure lightbox is bound for masonry items too (if DOM changes later)
-    attachLightbox();
-  </script>
 </body>
 </html>
